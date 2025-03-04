@@ -1,41 +1,61 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Balderrama Karla Mat. 1149'),
+          backgroundColor: Colors.blue, // Puedes cambiar el color de la AppBar
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Primer Container: Circular
+              Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Colors.blue, // Color del círculo
+                  shape: BoxShape.circle, // Forma circular
+                ),
+              ),
+              SizedBox(height: 20), // Espacio entre los containers
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
+              // Segundo Container: Cuadrado con bordes redondeados
+              Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Color(0xffa657b4), // Color del cuadrado
+                  borderRadius: BorderRadius.circular(20), // Bordes redondeados
+                ),
+              ),
+              SizedBox(height: 20), // Espacio entre los containers
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
+              // Tercer Container: Cuadrado con bordes inferiores redondeados al 50%
+              Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Color(0xffded36c), // Color del contenedor
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(
+                        50), // Borde inferior izquierdo redondeado
+                    bottomRight: Radius.circular(
+                        50), // Borde inferior derecho redondeado
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
